@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 
 
 const Headers = () => {
+  const {user,logOut} = useContext(AuthContext) 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const handleLogOut = () => {
+      logOut()
+      .then(result => console.log(result))
+      .catch(error => console.error(error))
+    }
     return (
         <div class="bg-white">
         <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 text-teal-600 font-bold">
@@ -69,12 +77,12 @@ const Headers = () => {
               </li>
               <li>
                 <a
-                  href="/"
-                  class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-teal-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                  href="/login"
+                  class="inline-flex items-center justify-center h-12  font-medium tracking-wide text-teal-600"
                   aria-label="Sign up"
                   title="Sign up"
                 >
-                  Sign up
+                  Log in
                 </a>
               </li>
             </ul>
@@ -180,6 +188,35 @@ const Headers = () => {
                         </Link>
                         </li>
                       </ul>
+                      <div class="sm:flex sm:gap-4 justify-center">
+          {
+            user?.uid?
+            <>
+              <span className='pt-2'>{user?.displayName}</span>
+            <button className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700" onClick={handleLogOut}>Log Out</button>
+            </>
+            :
+            <Link
+            class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
+            to="/login"
+          >
+            Login
+          </Link>
+          }
+        </div>
+        <div class="sm:flex sm:gap-4 justify-center">
+          {
+            user?.photoURL?
+            <>
+            <img style={{height:"30px"}} className="rounded-full" src={user?.photoURL} alt={user.displayName}></img>
+            </>
+            :
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+
+          }
+        </div>
                     </nav>
                   </div>
                 </div>

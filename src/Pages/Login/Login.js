@@ -25,10 +25,7 @@ const Login = () => {
         <div className='flex justify-center items-center pt-8'>
       <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-teal-600 text-white'>
         <div className='mb-8 text-center'>
-          <h1 className='my-3 text-4xl font-bold'>Sign in</h1>
-          <p className='text-sm text-white'>
-            Sign in to access your account
-          </p>
+          <h1 className='my-3 text-4xl font-bold'>Log in</h1>
         </div>
         <form
           onSubmit={handleSubmit}
@@ -69,19 +66,19 @@ const Login = () => {
           </div>
 
           <div>
-            <button
+            <button style={{border: '1px solid white'}}
               type='submit'
-              className='w-full px-8 py-3 font-semibold rounded-md bg-teal-600 hover:bg-gray-700 hover:text-white text-white'
+              className='w-full px-8 py-3 font-semibold rounded-md hover:text-white text-white hover:bg-teal-600'
             >
-              Sign in
+             Log in
             </button>
           </div>
         </form>
 
         <div className='flex items-center pt-4 space-x-1'>
           <div className='flex-1 h-px sm:w-16 '></div>
-          <p className='px-3 text-sm '>
-            Login with social accounts
+          <p  className='font-bold pb-2'>
+            OR
           </p>
           <div className='flex-1 h-px sm:w-16'></div>
         </div>
@@ -103,7 +100,7 @@ const Login = () => {
         </div>
         <p className='px-6 text-sm text-center text-white'>
           Don't have an account yet?{' '}
-          <Link to='/register' className='hover:underline text-white'>
+          <Link to='/signup' className='hover:underline text-white'>
             Sign up
           </Link>
           .

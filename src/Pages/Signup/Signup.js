@@ -14,7 +14,9 @@ const Signup = () => {
         const password = event.target.password.value;
         createUser(email, password)
         console.log(createUser)
-        .then(result => {})
+        .then(result => {
+          
+        })
         .catch(error => console.error(error))
     }
     const googleSignIn = () => {
@@ -80,9 +82,9 @@ const Signup = () => {
             </div>
             <div className='space-y-2'>
               <div>
-                <button
+                <button style={{border: '1px solid white'}}
                   type='submit'
-                  className='w-full px-8 py-3 font-semibold rounded-md btn-outline hover:bg-gray-700 hover:text-white text-white'
+                  className='w-full px-8 py-3 font-semibold rounded-md  hover:text-white text-white hover:border-none'
                 >
                   Sign Up
                 </button>
