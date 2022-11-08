@@ -3,19 +3,21 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from '../../Context/AuthProvider';
 
 
+
 const Signup = () => {
     const {createUser,signInWithGoogle} = useContext(AuthContext);
     
     const handleSubmit = event => {
         event.preventDefault();
-
-        const name = event.target.name.value;
-        const email = event.target.email.value;
-        const password = event.target.password.value;
+        const form = event.target
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
         createUser(email, password)
-        console.log(createUser)
         .then(result => {
-          
+          const user = result.user;
+          console.log(user);
+          form.reset();
         })
         .catch(error => console.error(error))
     }

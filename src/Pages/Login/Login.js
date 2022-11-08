@@ -8,11 +8,16 @@ const Login = () => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        const email = event.target.email.value;
-        const password = event.target.password.value;
+        const form = event.target
+        const email = form.email.value;
+        const password = form.password.value;
 
         signIn(email, password)
-        .then(result => console.log(result.user))
+        .then(result => {
+          const user = result.user;
+          console.log(user)
+          form.reset();
+        })
         .catch(error => console.error(error))
     }
     const  GoogleSignIn = () => {
@@ -44,7 +49,7 @@ const Login = () => {
                 name='email'
                 id='email'
                 placeholder='Enter Your Email Here'
-                className='w-full px-3 py-2 border rounded-md border-white focus:border-white bg-white text-gray-900'
+                className='w-full px-3 py-2 border rounded-md border-white focus:border-white bg-white text-teal-600'
                 data-temp-mail-org='0'
               />
             </div>
@@ -58,7 +63,7 @@ const Login = () => {
                 name='password'
                 id='password'
                 placeholder='Enter Your Email Here'
-                className='w-full px-3 py-2 border rounded-md border-white focus:border-white bg-white text-gray-900'
+                className='w-full px-3 py-2 border rounded-md border-white focus:border-white bg-white text-teal-600'
                 data-temp-mail-org='0'
               />
             </div>

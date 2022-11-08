@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
-
+import { toast } from 'react-toastify'
 const AddService = () => {
     const {_id, title, price} = useLoaderData();
     const {user} = useContext(AuthContext)
@@ -22,6 +22,24 @@ const AddService = () => {
             phone,
             message,
         }
+        if(phone.length > 11){
+            toast.error('phone number must be 11 character');
+        }
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body:JSON.stringify(order)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.acknowledged){
+                toast.success('successfully placed')
+                form.reset();
+            }
+        })
+        .catch(error => console.error(error))
     }
     return (
             <div className='my-20 bg-teal-600 lg:px-48'>
@@ -37,12 +55,12 @@ const AddService = () => {
                     </div>
                     <textarea name="message" className="textarea textarea-bordered w-full lg:py-8 mt-5 text-teal-600" placeholder="Your Message " required>Your Message</textarea>
 
-                    <a class="group relative my-5 inline-block text-sm font-medium text-white focus:outline-none focus:ring active:text-teal-600" href="/">
+                    <button class="group relative my-5 inline-block text-sm font-medium text-white focus:outline-none focus:ring active:text-teal-600">
                        <span class="absolute inset-0 border border-current"></span>
                        <span class="block border border-current bg-teal-600 px-12 py-3 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1">
                        Submit
                        </span>
-                     </a>
+                     </button>
                 </form> 
            </div>
     );
