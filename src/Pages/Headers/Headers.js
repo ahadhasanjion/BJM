@@ -50,6 +50,13 @@ const Headers = () => {
                       About Us
                       </Link>
                     </li>
+                    <li>
+                      <Link to="/contact"aria-label="AboutUs"title="AboutUs"
+                      className={({isActive})=> isActive? "font-medium tracking-wide text-teal-600         transition-colors duration-200 hover:text-deep-purple-accent-400" 
+                      : "font-medium tracking-wide text-teal-600 transition-colors duration-200         hover:text-deep-purple-accent-400"}>
+                      Contact
+                      </Link>
+                    </li>
                     {
                           user?.uid?
             
