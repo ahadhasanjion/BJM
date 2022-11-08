@@ -1,0 +1,45 @@
+[
+    {
+        "service_id": "01",
+        "title": "Office Cleaning",
+        "img": "https://i.ibb.co/12xV9Cs/service1.png",
+        "price": "10000",
+        "description": "Clean workspaces, common areas, offices, hallways, and bathrooms. Sweep, mop, and buff hardwood floors as needed. Vacuum carpeted areas and furniture. Dust and polish various surfaces. Restock bathrooms with supplies!"
+
+    },
+    {
+        "service_id": "05",
+        "title": "Commercial Cleaning",
+        "img": "https://i.ibb.co/ChJ93h5/service2.png",
+        "price": "20000",
+        "description": "Commercial cleaning service is very important for any organization. In the present scenario, it is necessary to clean and maintain the premises, which are being used by the organization. The commercial cleaning service will help you to maintain the premises of your organization in a proper way. It will also help you to maintain a hygienic environment for your employees. The recovery of such services is essential for the organizations and premises."
+    },
+    {
+        "service_id": "01",
+        "title": "Building Cleaning",
+        "img": "https://i.ibb.co/pdqvDmV/service3.png",
+        "price": "25000",
+        "description": "Home where the heart is. That is where the grimy and lethal lies lie every day. Cleaning the residence is a necessary part of home possession and its miles regularly hard to suit a hectic agenda. Keeping an easy home must not be sacrificed due to a busy agenda. Painting girl Wright is right here to assist. We are a complete-home-cleansing solution that combines reliable and committed providers with the most advanced cleaning tools and technology to ease up your private home in evaluation to any level.!"
+    },
+    {
+        "service_id": "02",
+        "title": "Warehouse Cleaning",
+        "img": "https://i.ibb.co/DLQH0xZ/wirehouse.jpg",
+        "price": "6000",
+        "description": "Whatever you need to be cleaned in your industrial facility – from the front office, the warehouse or the plant floor itself . ServiceMaster Clean has the equipment, expertise and experience to get the job done right. Our industrial cleaning experts create a clean and positive environment for your facility and work around your schedule to help ensure your operation stays productive. We also understand the unique safety needs of manufacturing and distribution facilities and customize our training to adhere to your facility's specific safety standards and workflow."
+    },
+    {
+        "service_id": "03",
+        "title": "Car Cleaning",
+        "img": "https://i.ibb.co/Th91BJ2/car.jpg",
+        "price": "4000",
+        "description": "We have professional service partners with verified resources. Our resources are experienced because we try to provide punctual service. We are making a one-stop service solution because your flexibility is our main priority."
+    },
+    {
+        "service_id": "06",
+        "title": "School Cleaning",
+        "img": "https://i.ibb.co/Vxt4Fn5/school.jpg",
+        "price": "2500",
+        "description": "Educational facilities need to provide a safe, clean and healthy environment for people to learn. Whether it’s an elementary school or a university, students should be able to focus on the subject matter at hand and should never be at risk of picking up germs or bacteria. ServiceMaster Clean's systematic approach to cleaning educational facilities helps protect the health of your students and your staff. From daily cleaning to high-level disinfecting, we offer all levels of service to fit your needs and budget. We'll also help you stay compliant with all regulations and standards."
+    }
+]
