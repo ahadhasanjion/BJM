@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
+import Review from '../ReviewPage/Review';
+
 
 const ServiceDetails = () => {
+    const {user} = useContext(AuthContext);
     const {img, title, description, price} = useLoaderData()
     return (
+        <div>
             <article class="flex bg-teal-600 transition hover:shadow-xl mx-48 mb-8">
                 <div class="hidden sm:block sm:basis-56">
                     <img alt="Guitar"src={img} class="aspect-square h-full w-full object-cover"/>
@@ -21,6 +26,11 @@ const ServiceDetails = () => {
                 </div>
             </article>
 
+            <div className="mx-auto">
+                <Review></Review>
+            </div>
+        </div>
+       
 
     );
 };
