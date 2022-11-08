@@ -50,11 +50,20 @@ const Headers = () => {
                       About Us
                       </Link>
                     </li>
-                    <li>
-                      <Link href="/login"class="inline-flex items-center justify-center h-12  font-medium         tracking-wide text-teal-600"aria-label="Sign up"title="Sign up">
+                    {
+                          user?.uid?
+            
+                          <li className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700" onClick={handleLogOut}>Log Out</li>
+                          
+                          :
+
+                          <li>
+                        <Link to="/login"class="inline-flex items-center justify-center h-12  font-medium         tracking-wide text-teal-600"aria-label="Sign up"title="Sign up">
                         Log in
                       </Link>
-                    </li>
+                       </li>
+                    }
+                    
                   </ul>
                   <div class="lg:hidden">
                     <button aria-label="Open Menu" title="Open Menu" class="p-2 -mr-1 transition duration-200   rounded focus:outline-none focus:shadow-outline"onClick={() => setIsMenuOpen(true)}>
@@ -154,30 +163,15 @@ const Headers = () => {
                         </li>
                       </ul>
                       <div class="sm:flex sm:gap-4 justify-center">
-                     {
-                          user?.uid?
-                          <>
-                          <span className='pt-2'>{user?.displayName}</span>
-                          <button className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700" onClick={handleLogOut}>Log Out</button>
-                          </>
-                          :
-                         <Link class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700" to="/login">
+                      {
+                          user?.uid &&
+            
+                          <li className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700" onClick={handleLogOut}>Log Out</li>
+                      }
+                      {   <Link class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700" to="/login">
                            Login
                          </Link>
                       }
-        </div>
-        <div class="sm:flex sm:gap-4 justify-center">
-          {
-            user?.photoURL?
-            <>
-            <img style={{height:"30px"}} className="rounded-full" src={user?.photoURL} alt={user.displayName}></img>
-            </>
-            :
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-
-          }
         </div>
                     </nav>
                   </div>
