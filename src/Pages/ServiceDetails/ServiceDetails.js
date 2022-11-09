@@ -1,12 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
-import Review from '../ReviewPage/Review';
+import AddReview from '../ReviewPage/AddReview';
 
 
 const ServiceDetails = () => {
     const {user} = useContext(AuthContext);
-    const {img, title, description, price} = useLoaderData()
+    const {addedreviews, setAddedReviews} = useState({})
+    const service = useLoaderData()
+    const {img, title, description, price} = service
     return (
         <div>
             <article class="flex bg-teal-600 transition hover:shadow-xl mx-48 mb-8">
@@ -25,9 +27,8 @@ const ServiceDetails = () => {
                     </div>
                 </div>
             </article>
-
             <div className="mx-auto">
-                <Review></Review>
+                <AddReview service={service}></AddReview>
             </div>
         </div>
        
