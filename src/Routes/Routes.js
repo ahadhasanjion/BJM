@@ -6,6 +6,7 @@ import Contact from "../Pages/Contact/Contact";
 import Home from "../Pages/Home/Home";
 import Main from "../Pages/Layout/Main";
 import Login from "../Pages/Login/Login";
+import Reviews from "../Pages/ReviewPage/Reviews";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import Services from "../Pages/Services/Services";
 import Signup from "../Pages/Signup/Signup";
@@ -52,6 +53,7 @@ export const routes = createBrowserRouter([
                 path:'/contact',
                 element:<Contact></Contact>
             }
+            
         ]
         
     }

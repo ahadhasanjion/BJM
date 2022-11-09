@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import AddReview from '../ReviewPage/AddReview';
+import Reviews from '../ReviewPage/Reviews';
 
 
 const ServiceDetails = () => {
@@ -27,6 +28,9 @@ const ServiceDetails = () => {
                     </div>
                 </div>
             </article>
+            <div>
+                <Reviews></Reviews>
+            </div>
             <div className="mx-auto">
                 <AddReview service={service}></AddReview>
             </div>

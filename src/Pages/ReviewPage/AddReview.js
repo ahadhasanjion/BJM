@@ -1,15 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const AddReview = ({service}) => {
-    const [review, setReview] = useState()
+    // const [review, setReview] = useState()
     const {user} = useContext(AuthContext)
 
     const handleSubmit = event => {
         event.preventDefault()
         const form = event.target;
         const name = form.name.value;
-        const photoURL= form.photoURL.value
+        const photoUrl= form.photoUrl.value;
         const email =user?.email || 'unregister';
         const message = form.message.value;
 
@@ -19,7 +19,7 @@ const AddReview = ({service}) => {
             serviceId : service._id,
             message:message,
             email:email,
-            photoURL:photoURL,
+            photoUrl:photoUrl,
         }
         fetch(`http://localhost:5000/reviews`, {
             method:"POST",
@@ -31,10 +31,6 @@ const AddReview = ({service}) => {
         .then(res => res.json())
         .then(data => console.log(data))
 
-
-        fetch(`http://localhost:5000/reviews/${service._id}`)
-        .then(res => res.json())
-        .then(data => setReview(data))
     }
     return (
         <div>
@@ -44,10 +40,9 @@ const AddReview = ({service}) => {
                 <form onSubmit={handleSubmit}>
                    <h2 className=' text-center text-4xl text-white'>Add Review</h2>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-3'>
-                        <input name="firstName" type="text" placeholder="First Name"  className="input input-bordered w-full py-2 px-2 text-teal-600" required/>
-                        <input name="phone" type="text" placeholder="Your Phone" className="input input-bordered w-full py-2 px-2 text-teal-600" required/>
+                        <input name="name" type="text" placeholder=" Name"  className="input input-bordered w-full py-2 px-2 text-teal-600" required/>
                         <input name="email" type="email" placeholder="Your Email" className="input input-bordered w-full py-2 px-2 text-teal-600" />
-                        <input name="photoURL" type="text" placeholder="PhotoURL"className="input input-bordered w-full py-2 px-2 text-teal-600"/>
+                        <input name="photoUrl" type="text" placeholder="PhotoUrl"className="input input-bordered w-full py-2 px-2 text-teal-600"/>
                     </div>
                     <textarea name="message" className="textarea textarea-bordered w-full lg:py-8 mt-5 text-teal-600" placeholder="Your Message " required>Your Message</textarea>
 
