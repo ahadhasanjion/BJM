@@ -7,7 +7,7 @@ const HomeServic = ({services}) => {
     return (
         <div className='mb-20'>
             <h1 className='text-teal-600 font-bold text-4xl'>Services</h1>
-        <div className='grid grid-col1 lg:grid-col-3 md:grid-cols-3 mx-40 mb-8'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-3 mb-8 gap-5 mx-20'>
             {
                 services.map(service=> <ServiceCard  service={service} ></ServiceCard>)
 

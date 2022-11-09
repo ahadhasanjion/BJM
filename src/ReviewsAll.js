@@ -1,34 +1,37 @@
 import React, { useEffect, useState } from 'react';
-import AllReviewsInfo from './AllReviewsInfo';
+import useSetTitle from '../../../hooks/useSetTitle';
+import ReviewsAllInformation from './ReviewsAllInformation';
 
-const AllReviews = () => {
+const ReviewsAll = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('http://localhost:5001/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
+    // useSetTitle('Services')
 
     return (
-        <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12 dark:text-gray-100">
+        <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12 dark:bg-gray-800 dark:text-gray-100">
             <table className="table w-full">
+                {/* <!-- head --> */}
                 <thead>
                     <tr>
                         <th>
 
                         </th>
-                        <th>Pic</th>
-                        <th>Name</th>
-                        <th>Review</th>
+                        <th>User Info</th>
+                        <th>Package Info</th>
+                        <th>Review Details</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        reviews.map(review => <AllReviewsInfo
+                        reviews.map(review => <ReviewsAllInformation
                             key={review._id}
                             review={review}
-                        ></AllReviewsInfo>)
+                        ></ReviewsAllInformation>)
                     }
                 </tbody>
 
@@ -37,4 +40,4 @@ const AllReviews = () => {
     );
 };
 
-export default AllReviews;
+export default ReviewsAll;

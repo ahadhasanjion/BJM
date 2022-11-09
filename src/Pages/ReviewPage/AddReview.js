@@ -15,7 +15,7 @@ const AddReview = ({service}) => {
 
         const review =  {
             reviewerName:name,
-            serviceTitle: service.title,
+            title: service.title,
             serviceId : service._id,
             message:message,
             email:email,

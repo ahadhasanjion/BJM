@@ -31,29 +31,36 @@ const Reviews = () => {
         }
     }
     return (
-        <div>
-             <div className="overflow-x-auto  mx-40">
-                <table className="table w-full">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
-                            </th>
-                            <th>Pic</th>
-                            <th>Name</th>
-                            <th>Review</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            reviews.map(review=> <ReviewsCard key={review._id} review={review} handleDelete={handleDelete}></ReviewsCard>)
-                        }
-    
-                    </tbody>
-                </table>
-            </div>
+
+        <div className='lg:mx-40 md:w-full'>
+             {reviews.length === 0 ?
+                <><p>Add review</p></>
+                :
+                <>
+                    <div className="">
+                        <table className="table overflow-x-auto w-full">
+                            <thead>
+                                <tr className='text-teal-600 mx-40'>
+                                    <th>
+
+                                    </th>
+                                    <th>Pic</th>
+                                    <th>Name</th>
+                                    <th>Review</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody className='lg:w-2/4'>
+                                {
+                                reviews.map(review => <ReviewsCard key={review._id} review={review}handleDelete={handleDelete}></ReviewsCard>)
+                                }
+                            </tbody>
+
+                        </table>
+                    </div>
+                </>
+
+            }
         </div>
     );
 };
