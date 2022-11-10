@@ -36,6 +36,29 @@ const Headers = () => {
                          Services
                       </Link>
                     </li>
+                    
+                      {
+                        user?.email?
+                        <li>
+                          <Link to="/myreview"aria-label="Services"title="Services"
+                        className={({isActive})=> isActive? "font-medium tracking-wide text-teal-600           transition-colors duration-200 hover:text-deep-purple-accent-400" 
+                        : "font-medium tracking-wide text-teal-600 transition-colors duration-200         hover:text-deep-purple-accent-400"}>
+                         My Review
+                        </Link>
+                        </li>
+                        &&
+                         <li>
+                          <Link to="/addservice"aria-label="Services"title="Services"
+                         className={({isActive})=> isActive? "font-medium tracking-wide text-teal-600           transition-colors duration-200 hover:text-deep-purple-accent-400" 
+                         : "font-medium tracking-wide text-teal-600 transition-colors duration-200         hover:text-deep-purple-accent-400"}>
+                          Add Services
+                        </Link>
+                         </li>
+                       :
+                       <Link to="/login"class="inline-flex items-center justify-center h-12  font-medium         tracking-wide text-teal-600"aria-label="login"title="Sign up">
+                       </Link>
+                      } 
+                     
                     <li> 
                       <Link to="/blog"aria-label="Blog"title="Blog"
                         className={({isActive})=> isActive? "font-medium tracking-wide text-teal-600 transition-colors duration-200 hover:text-deep-purple-accent-400" 

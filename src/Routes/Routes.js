@@ -6,6 +6,7 @@ import Contact from "../Pages/Contact/Contact";
 import Home from "../Pages/Home/Home";
 import Main from "../Pages/Layout/Main";
 import Login from "../Pages/Login/Login";
+import MyReviews from "../Pages/MyReviews/MyReviews";
 import Reviews from "../Pages/ReviewPage/Reviews";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import Services from "../Pages/Services/Services";
@@ -58,8 +59,15 @@ export const routes = createBrowserRouter([
                 element:<AddService></AddService>,
                 loader: () => fetch('http://localhost:5000/services/')
 
-            }
-            
+            },
+            {
+                path:'/myreview',
+                element:<MyReviews></MyReviews>
+            },
+            {
+                path:'/addservice',
+                element:<AddService></AddService>
+            },
         ]
         
     }
