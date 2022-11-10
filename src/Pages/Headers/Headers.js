@@ -54,6 +54,8 @@ const Headers = () => {
                           Add Services
                         </Link>
                          </li>
+                         &&
+                          <li className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700" onClick={handleLogOut}>Log Out</li>
                        :
                        <Link to="/login"class="inline-flex items-center justify-center h-12  font-medium         tracking-wide text-teal-600"aria-label="login"title="Sign up">
                        </Link>
