@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import useTitle from '../../TitleHook/useTitle';
 import Loader from '../Loader/Loader';
 import ServiceCard from './ServiceCard';
 import './services.css'
 
 const Services = () => {
+    useTitle('Services')
     const [services, setServices] = useState([]);
     const [loading, setLoading] = useState(true);
 

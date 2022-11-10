@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../TitleHook/useTitle';
 
 const Contact = () => {
+    useTitle('Contact')
     return (
         <div>
            <section class="bg-teal-600">

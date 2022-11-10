@@ -2,9 +2,11 @@ import React, { useContext }  from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import useTitle from '../../TitleHook/useTitle';
 
 
 const Login = () => {
+  useTitle('Log in')
     const {signInWithGoogle, signIn} = useContext(AuthContext);
     const location =useLocation()
     const navigate = useNavigate()

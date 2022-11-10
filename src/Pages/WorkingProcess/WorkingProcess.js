@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../TitleHook/useTitle';
 
 const WorkingProcess = () => {
+    useTitle('Working Process')
     return (
         <div className='mx-40 mt-12 mb-12'>
            <section class="">

@@ -2,8 +2,10 @@ import React from 'react';
 import bannerImg from '../../Assets/banner_bg-1.svg';
 import img from '../../Assets/banner1.png';
 import { Link } from 'react-router-dom';
+import useTitle from '../../TitleHook/useTitle';
 
 const Banner = () => {
+  useTitle('Banner')
     return (
         <div className="relative flex flex-col-reverse py-16 lg:pt-0 lg:flex-col lg:pb-0 bg-teal-600">
       <div className="inset-y-0 top-0 right-0 z-0 w-full max-w-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-7/12  md:bottom-0 lg:absolute xl:px-0">

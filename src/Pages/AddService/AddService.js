@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 import toast  from 'react-hot-toast'
+import useTitle from '../../TitleHook/useTitle';
 const AddService = () => {
+    useTitle('Add Service')
     const [services, setServices] = useState({});
      const current = new Date().toLocaleString();
     const handleOnBlur = event => {

@@ -3,10 +3,12 @@ import { Link, useLoaderData } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../Context/AuthProvider';
 import ReviewsCard from '../ReviewPage/ReviewsCard';
+import useTitle from '../../TitleHook/useTitle';
 // import Reviews from '../ReviewPage/Reviews';
 
 
 const ServiceDetails = () => {
+    useTitle('Service Details')
     const {user} = useContext(AuthContext);
     const service = useLoaderData()
     const {img, title, description, price, _id} = service;

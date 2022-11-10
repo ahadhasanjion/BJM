@@ -1,6 +1,8 @@
 import React  from 'react';
+import useTitle from '../../TitleHook/useTitle';
 
 const MyReviewInfo = ({ review, handleDelete }) => {
+    useTitle('My Review')
     const { reviewerName, message, photoUrl, _id } = review;
 
 
