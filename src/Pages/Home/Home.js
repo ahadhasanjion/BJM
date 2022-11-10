@@ -9,7 +9,7 @@ import HomeServic from './HomeServic';
 const Home = () => {
     const services = useLoaderData()
     return (
-        <>
+        <div>
             <Banner></Banner>
             <Stats></Stats>
             <WorkingProcess></WorkingProcess>
