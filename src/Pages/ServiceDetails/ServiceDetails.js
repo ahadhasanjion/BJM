@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
-import Reviews from '../ReviewPage/Reviews';
+import ReviewsCard from '../ReviewPage/ReviewsCard';
 // import Reviews from '../ReviewPage/Reviews';
 
 
@@ -12,10 +12,10 @@ const ServiceDetails = () => {
     const [serviceReview, setServiceReview] = useState([])
 
     useEffect(()=> {
-        fetch(`http://localhost:5000/reviews/${_id}`)
+        fetch(`http://localhost:5000/review?service_id=${_id}`)
         .then(res => res.json())
         .then(data => setServiceReview(data))
-      }, [_id])
+     }, [_id])
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -28,7 +28,7 @@ const ServiceDetails = () => {
         const review =  {
             reviewerName:name,
             title: service.title,
-            service : _id,
+            service_id : _id,
             message:message,
             email:email,
             photoUrl:photoUrl,
@@ -73,9 +73,51 @@ const ServiceDetails = () => {
                     </div>
                 </div>
             </article>
-            <div>
-                <Reviews></Reviews>
+
+
+            <div className='mx-auto'>
+                <table className="table w-full">
+          <thead>
+            <tr>
+              <th>
+                <label>
+                  <input type="checkbox" className="checkbox" />
+                </label>
+              </th>
+              <th>Name</th>
+              <th>Job</th>
+              <th>Favorite Color</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+               {
+                serviceReview.map(rev => <ReviewsCard  ke={rev._id} rev={rev}></ReviewsCard>)
+               }
+          </tbody>
+          
+        </table>
             </div>
+
+
+
+
+
+
+
+
+
+
+                {/* {
+                    serviceReview.map(rev => <AllReviewsInfo key={rev._id} rev={rev}></AllReviewsInfo>)
+                } */}
+        
+
+            {/* <div>
+                <Reviews></Reviews>
+            </div> */}
+
+
             <div className="mx-auto">
             <div>
            
