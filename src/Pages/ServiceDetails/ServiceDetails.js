@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../Context/AuthProvider';
 import ReviewsCard from '../ReviewPage/ReviewsCard';
 // import Reviews from '../ReviewPage/Reviews';
@@ -43,7 +44,7 @@ const ServiceDetails = () => {
         .then(res => res.json())
         .then(data => {
             if (data.acknowledged) {
-                alert('Review Posted')
+                toast.success('Review Posted')
                 window.location.reload(false);
                 form.reset();
             }
@@ -122,7 +123,10 @@ const ServiceDetails = () => {
             <div>
            
            <div>
-           <div className='my-20 bg-teal-600 lg:px-48'>
+           {
+            user?.email?
+            <>
+              <div className='my-20 bg-teal-600 lg:px-48'>
                <form onSubmit={handleSubmit}>
                   <h2 className=' text-center text-4xl text-white'>Add Review</h2>
                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-3'>
@@ -139,7 +143,13 @@ const ServiceDetails = () => {
                       </span>
                     </button>
                </form> 
-          </div>
+            </div>
+            </>
+            :
+                    <div className='text-center'>
+                        <p className='text-4xl font-bold text-purple-800  my-5'> Please <Link className='text-black' to="/login">Login</Link> to Add Your Review </p>
+                    </div>
+           }
            </div>
        </div>
             </div>
