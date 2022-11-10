@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../Context/AuthProvider';
 import MyReviewInfo from '../ReviewPage/MyReviewInfo';
+
 
 const MyReviews = () => {
     const {user} = useContext(AuthContext);
@@ -9,21 +11,21 @@ const MyReviews = () => {
     useEffect(() => {
         fetch(`https://bjm-server.vercel.app/reviews?email=${user?.email}`)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => setReviews(data))
     }, [user?.email])
 
-    const handleDelete = id =>{
+    const handleDelete = review =>{
         const proceed = window.confirm('are you sure you want to delete reviews');
         if(proceed){
-            fetch(`https://bjm-server.vercel.app/reviews/${id}`,{
+            fetch(`https://bjm-server.vercel.app/reviews/${review._id}`,{
                 method:'DELETE',
             })
             .then(res=>res.json())
             .then(data=> {
                 console.log(data)
                 if(data.deletedCount > 0){
-                    alert('deleted successfully')
-                    const remaining = reviews.filter(rew=> rew._id !== id)
+                    toast.success('deleted successfully')
+                    const remaining = reviews.filter(rew=> rew._id !== review._id)
                     setReviews(remaining);
                 }
             })
@@ -48,6 +50,7 @@ const MyReviews = () => {
                              reviews.map(review => <MyReviewInfo
                                  key={review._id}
                                  review={review}
+                                 handleDelete={handleDelete}
                              ></MyReviewInfo>)
                          }
                      </tbody>

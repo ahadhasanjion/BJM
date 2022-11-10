@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import Loader from '../Loader/Loader';
 import ServiceCard from './ServiceCard';
 import './services.css'
 
 const Services = () => {
     const [services, setServices] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         fetch('https://bjm-server.vercel.app/services')
         .then(res => res.json())
-        .then(data => setServices(data))
+        .then(data =>{ 
+                setLoading(false);
+                setServices(data)
+           })
     },[])
+    if(loading){
+        return <Loader></Loader>
+    }
     return (
         <div className='mb-20 mx-auto'>
             <div className='text-center mx-auto w-96 mb-4 mt-8'>

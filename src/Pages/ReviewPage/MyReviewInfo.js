@@ -8,7 +8,7 @@ const MyReviewInfo = ({ review, handleDelete }) => {
         <tr>
             <th>
                 <label>
-                    <button onClick={() => handleDelete(_id)} className="btn btn-circle btn-outline">
+                    <button onClick={() => handleDelete(review)} className="btn btn-circle btn-outline">
                         X
                     </button>
                 </label>

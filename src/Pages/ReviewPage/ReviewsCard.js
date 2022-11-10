@@ -1,4 +1,5 @@
 import React, { useState }  from 'react';
+import toast from 'react-hot-toast';
 
 const ReviewsCard = ({rev}) => {
     const {reviewerName, message, photoUrl, _id,} = rev;
@@ -13,11 +14,10 @@ const ReviewsCard = ({rev}) => {
             .then(data=> {
                 console.log(data)
                 if(data.deletedCount > 0){
-                    alert('deleted successfully')
+                    toast.success('deleted successfully')
                 }
                 const remaining = reviews.filter(r => r._id !== id)
                     setReviews(remaining);
-               
             })
         }
     }
@@ -45,10 +45,6 @@ const ReviewsCard = ({rev}) => {
         <td>
           <p>{message}</p>
         </td>
-        <td>Purple</td>
-        <th>
-          <button className="btn btn-ghost btn-xs" onClick={ ()=>handleDelete(_id)}>X</button>
-        </th>
       </tr>
     );
 };

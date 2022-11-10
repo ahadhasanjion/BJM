@@ -11,6 +11,7 @@ import Reviews from "../Pages/ReviewPage/Reviews";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import Services from "../Pages/Services/Services";
 import Signup from "../Pages/Signup/Signup";
+import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 
 
 
@@ -55,18 +56,14 @@ export const routes = createBrowserRouter([
                 element:<Contact></Contact>
             },
             {
-                path:'/addservices',
+                path:'/addServices',
                 element:<AddService></AddService>,
                 loader: () => fetch('https://bjm-server.vercel.app/services/')
 
             },
             {
-                path:'/myreview',
+                path:'/myReview',
                 element:<MyReviews></MyReviews>
-            },
-            {
-                path:'/addservice',
-                element:<AddService></AddService>
             },
         ]
         

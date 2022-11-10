@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom'
+import toast from 'react-hot-toast';
+import { Link, useLoaderData, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../Context/AuthProvider';
 
 
 
 const Signup = () => {
     const {createUser,signInWithGoogle} = useContext(AuthContext);
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/';
     
     const handleSubmit = event => {
         event.preventDefault();
@@ -16,14 +20,22 @@ const Signup = () => {
         createUser(email, password)
         .then(result => {
           const user = result.user;
+          toast('You are now our registered customer')
           console.log(user);
+          navigate(from, {replace:true})
           form.reset();
         })
         .catch(error => console.error(error))
     }
     const googleSignIn = () => {
         signInWithGoogle()
-        .then(result => console.log(result))
+        .then(result => {
+           const user = result.user;
+           console.log(user)
+           toast('You are now our registered customer')
+           navigate(from, {replace:true})
+
+        })
         .catch(error => console.error(error))
     }
     return (
