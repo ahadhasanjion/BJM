@@ -13,7 +13,9 @@ const Home = () => {
             <Banner></Banner>
             <Stats></Stats>
             <WorkingProcess></WorkingProcess>
-            <HomeServic services={services}></HomeServic>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                 <HomeServic services={services}></HomeServic>
+            </div>
         </div>
     );
 };

@@ -6,7 +6,7 @@ const ReviewsCard = ({rev}) => {
     const handleDelete = id =>{
         const proceed = window.confirm('are you sure you want to delete reviews');
         if(proceed){
-            fetch(`http://localhost:5000/reviews/${id}`,{
+            fetch(`https://bjm-server.vercel.app/reviews/${id}`,{
                 method:'DELETE',
             })
             .then(res=>res.json())

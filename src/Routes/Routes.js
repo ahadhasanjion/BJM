@@ -22,7 +22,7 @@ export const routes = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                loader: () => fetch('http://localhost:5000/servic')
+                loader: () => fetch('https://bjm-server.vercel.app/servic')
             },
             {
                 path:'/services',
@@ -48,7 +48,7 @@ export const routes = createBrowserRouter([
             {
                 path:'/details/:id',
                 element:<ServiceDetails></ServiceDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params}) => fetch(`https://bjm-server.vercel.app/services/${params.id}`)
             },
             {
                 path:'/contact',
@@ -57,7 +57,7 @@ export const routes = createBrowserRouter([
             {
                 path:'/addservices',
                 element:<AddService></AddService>,
-                loader: () => fetch('http://localhost:5000/services/')
+                loader: () => fetch('https://bjm-server.vercel.app/services/')
 
             },
             {

@@ -12,7 +12,7 @@ const ServiceDetails = () => {
     const [serviceReview, setServiceReview] = useState([])
 
     useEffect(()=> {
-        fetch(`http://localhost:5000/review?service_id=${_id}`)
+        fetch(`https://bjm-server.vercel.app/review?service_id=${_id}`)
         .then(res => res.json())
         .then(data => setServiceReview(data))
      }, [_id])
@@ -33,7 +33,7 @@ const ServiceDetails = () => {
             email:email,
             photoUrl:photoUrl,
         }
-        fetch(`http://localhost:5000/reviews`, {
+        fetch(`https://bjm-server.vercel.app/reviews`, {
             method:"POST",
             headers:{
                 'content-type': 'application/json'
